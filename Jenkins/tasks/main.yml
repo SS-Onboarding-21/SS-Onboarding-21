@@ -1,0 +1,35 @@
+---
+# For Ubunru
+- name: Install the latest version of java
+  apt:
+    name: openjdk-11-jdk
+    state: latest
+
+- name: Download foo.conf
+  get_url:
+    url: http://example.com/path/file.conf
+    dest: /etc/foo.conf
+
+
+- name: Install the latest version of java
+  apt:
+    name: jenkins
+    state: latest
+
+---
+# For CentOS
+
+- name: Install the latest version of java
+  yum:
+    name: java-1.8.0-openjdk-devel
+    state: latest
+
+- name: Install the latest version of java
+  yum:
+    name: jenkins
+    state: latest
+
+- name: Install the nginx rpm from a remote repo
+  yum:
+    name: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    state: present
