@@ -1,0 +1,2 @@
+[web_server]
+jenkins ansible_host=35.192.212.4 ansible_ssh_private_key_file=/home/samirus/.ssh/id_rsa_2
