@@ -11,7 +11,7 @@ pipeline {
       }
       stage('Delete old instance'){
           steps {
-              sh 'gcloud compute instances delete $(gcloud compute instances list --format='table(name)' | head -n 2| tail -1) --quiet'
+              sh 'gcloud compute instances delete $(gcloud compute instances list --format="table(name)" | head -n 2| tail -1) --quiet'
           }
       }
       stage('Terraform Init'){
