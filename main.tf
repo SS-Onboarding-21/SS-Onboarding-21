@@ -52,14 +52,14 @@ resource "google_compute_instance" "Node_2" {
 
 }
 
-resource "google_compute_firewall" "my_firewall" {
-  name = "default"
-  network = "default"
-  allow {
-    protocol = "tcp"
-    ports = ["22"]
-  }
-}
+//resource "google_compute_firewall" "my_firewall" {
+//  name = "test-firewall"
+//  network = "default"
+//  allow {
+//    protocol = "tcp"
+//    ports = ["22"]
+//  }
+//}
 
 data "template_file" "dev_hosts" {
   template = file("${path.module}/templates/dev_hosts.cfg")
