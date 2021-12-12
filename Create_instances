@@ -14,13 +14,9 @@ pipeline {
               sh 'gcloud compute instances delete $(gcloud compute instances list --format="table(name)" | head -n 2| tail -1) --quiet'
           }
       }
-      stage('Terraform Init'){
-          steps{
-              sh 'terraform init -no-color'
-          }
-      }
-      stage('Terraform Apply') {
+      stage('Create new instance'){
         steps {
+            sh 'terraform init -no-color'
             sh 'terraform apply --auto-approve -no-color'
         }
       }
