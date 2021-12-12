@@ -1,8 +1,8 @@
 variable "project" {
-  default = "project-2-297319"
+  default = "iron-foundry-331709"
 }
 variable "credentials" {
-  default = "project-2-297319-918b48a4ad3f.json"
+  default = "iron-foundry-331709-5fc853df2dcf.json"
 }
 
 variable "region" {
@@ -10,9 +10,5 @@ variable "region" {
 }
 
 variable "zone" {
-  default = "us-central1-a"
-}
-
-variable "user" {
-  default = "samir"
+  default = "us-west1-a"
 }
