@@ -16,7 +16,7 @@ provider "google" {
   user_project_override = true
 }
 
-resource "google_compute_instance" "Node_1" {
+resource "google_compute_instance" "Node-1" {
   name = "Node-${local.timestamp_sanitized}"
   machine_type = "e2-medium"
 
@@ -34,7 +34,7 @@ resource "google_compute_instance" "Node_1" {
 
 }
 
-resource "google_compute_instance" "Node_2" {
+resource "google_compute_instance" "Node-2" {
   name = "Node-${local.timestamp_sanitized}"
   machine_type = "e2-medium"
 
@@ -64,12 +64,12 @@ resource "google_compute_instance" "Node_2" {
 data "template_file" "dev_hosts" {
   template = file("${path.module}/templates/dev_hosts.cfg")
   depends_on = [
-    google_compute_instance.Node_1,
-    google_compute_instance.Node_2,
+    google_compute_instance.Node-1,
+    google_compute_instance.Node-2,
   ]
   vars = {
-    api_node_1 = google_compute_instance.Node_1.network_interface.0.access_config.0.nat_ip
-    api_node_2 = google_compute_instance.Node_2.network_interface.0.access_config.0.nat_ip
+    api_node_1 = google_compute_instance.Node-1.network_interface.0.access_config.0.nat_ip
+    api_node_2 = google_compute_instance.Node-2.network_interface.0.access_config.0.nat_ip
   }
 }
 
