@@ -17,7 +17,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "node-1" {
-  name = "node-${local.timestamp_sanitized}"
+  name = "node-1-${local.timestamp_sanitized}"
   machine_type = "e2-medium"
 
   boot_disk {
@@ -35,7 +35,7 @@ resource "google_compute_instance" "node-1" {
 }
 
 resource "google_compute_instance" "node-2" {
-  name = "node-${local.timestamp_sanitized}"
+  name = "node-2-${local.timestamp_sanitized}"
   machine_type = "e2-medium"
 
   boot_disk {
