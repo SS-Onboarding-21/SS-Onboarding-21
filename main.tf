@@ -52,15 +52,6 @@ resource "google_compute_instance" "node-2" {
 
 }
 
-//resource "google_compute_firewall" "my_firewall" {
-//  name = "test-firewall"
-//  network = "default"
-//  allow {
-//    protocol = "tcp"
-//    ports = ["22"]
-//  }
-//}
-
 data "template_file" "dev_hosts" {
   template = file("${path.module}/templates/dev_hosts.cfg")
   depends_on = [
