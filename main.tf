@@ -17,7 +17,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "node-1" {
-  name = "node-1-${local.timestamp_sanitized}"
+  name = "node-1-${local.timestamp_no_colons}"
   machine_type = "e2-medium"
 
   boot_disk {
