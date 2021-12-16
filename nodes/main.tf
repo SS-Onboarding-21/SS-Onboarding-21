@@ -7,7 +7,7 @@ provider "google" {
 
 // instances
 
-resource "google_compute_instance" "ubuntu-nodes" {
+resource "google_compute_instance" "nodes" {
 
   count = var.nodes_count
 
@@ -28,7 +28,7 @@ resource "google_compute_instance" "ubuntu-nodes" {
   }
 
   metadata = {
-    ssh-keys = "kateryna:${file("C:\\Users\\katya/.ssh/id_rsa.pub")}"
+    ssh-keys = "kateryna:${file("C:\\Users\\kvozn/.ssh/id_rsa.pub")}"
   }
 
   lifecycle {
@@ -36,6 +36,13 @@ resource "google_compute_instance" "ubuntu-nodes" {
   }
 
 }
+
+// outputs
+
+output "nodes-ips" {
+  value = google_compute_instance.nodes.*.network_interface.0.access_config.0.nat_ip
+}
+
 
 /*
 resource "null_resource" "nodesips" {

@@ -27,7 +27,6 @@ variable "nodes_count" {
 
 
 
-
 // security vars
 
 variable "ports" {
