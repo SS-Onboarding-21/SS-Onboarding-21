@@ -45,7 +45,7 @@ output "nodes-ips" {
 
 
 /*
-resource "null_resource" "nodesips" {
+resource "null_resource" "nodes-ips" {
   provisioner "local-exec" {
     command = "echo '${join("\n",google_compute_instance.ubuntu-nodes.*.network_interface.0.access_config.0.nat_ip)}' >> inventory.txt"
 
