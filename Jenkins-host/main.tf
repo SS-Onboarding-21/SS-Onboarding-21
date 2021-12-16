@@ -1,3 +1,10 @@
+
+provider "google" {
+  project     = var.project
+  region      = var.region
+  zone        = var.zone
+}
+
 // instance
 
 resource "google_compute_instance" "jenkins_server" {
