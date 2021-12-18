@@ -27,7 +27,7 @@ resource "google_compute_instance" "jenkins_server" {
   }
 
   metadata = {
-    ssh-keys = "kateryna:${file("C:\\Users\\kvozn/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.ssh_user}:${file("${var.public_key_path}")}"
   }
 
   lifecycle {

@@ -21,6 +21,16 @@ variable "ubuntu-boot_disk_image" {
   default = "ubuntu-2004-focal-v20210927"
 }
 
+variable "ssh_user" {
+  description = "User for connection to google machine"
+  default     = "user"
+}
+variable "public_key_path" {
+  description = "Path to file containing public key"
+  //default     = "C:\\Users\\kvozn/.ssh/id_rsa.pub"
+}
+
+
 
 // security vars
 

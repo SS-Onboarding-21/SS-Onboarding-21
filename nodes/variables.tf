@@ -5,11 +5,21 @@ variable "project" {
   default = "ss-geo-327714"
 }
 variable "region" {
-  default = "us-central1" // europe-north1
+  default = "us-west1" // europe-north1
 }
 variable "zone" {
   default = "us-west1-a" // europe-north1-a
 }
+
+variable "ssh_user" {
+  description = "User for connection to google machine"
+  default     = "user"
+}
+variable "public_key_path" {
+  description = "Path to file containing public key"
+  //default     = "C:\\Users\\kvozn/.ssh/id_rsa.pub"
+}
+
 
 // instances vars
 
@@ -24,6 +34,7 @@ variable "node-machine_type" {
 variable "nodes_count" {
   default = 2
 }
+
 
 
 

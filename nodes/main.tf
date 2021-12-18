@@ -28,7 +28,7 @@ resource "google_compute_instance" "nodes" {
   }
 
   metadata = {
-    ssh-keys = "kateryna:${file("C:\\Users\\kvozn/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.ssh_user}:${file("${var.public_key_path}")}"
   }
 
   lifecycle {
@@ -45,7 +45,7 @@ output "nodes-ips" {
 
 
 /*
-resource "null_resource" "nodes-ips" {
+resource "null_resource" "nodesips" {
   provisioner "local-exec" {
     command = "echo '${join("\n",google_compute_instance.ubuntu-nodes.*.network_interface.0.access_config.0.nat_ip)}' >> inventory.txt"
 
