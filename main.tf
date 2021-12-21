@@ -1,13 +1,3 @@
-locals {
-  timestamp = "${timestamp()}"
-  timestamp_no_hyphens = "${replace("${local.timestamp}", "-", "")}"
-  timestamp_no_spaces = "${replace("${local.timestamp_no_hyphens}", " ", "")}"
-  timestamp_no_t = "${replace("${local.timestamp_no_spaces}", "T", "")}"
-  timestamp_no_z = "${replace("${local.timestamp_no_t}", "Z", "")}"
-  timestamp_no_colons = "${replace("${local.timestamp_no_z}", ":", "")}"
-  timestamp_sanitized = "${local.timestamp_no_colons}"
-}
-
 provider "google" {
   credentials = var.credentials
   project     = var.project
@@ -17,7 +7,7 @@ provider "google" {
 }
 
 resource "google_compute_instance" "node-1" {
-  name = "node-1-${local.timestamp_no_colons}"
+  name = "node-1"
   machine_type = "e2-medium"
 
   boot_disk {
@@ -35,7 +25,7 @@ resource "google_compute_instance" "node-1" {
 }
 
 resource "google_compute_instance" "node-2" {
-  name = "node-2-${local.timestamp_sanitized}"
+  name = "node-2"
   machine_type = "e2-medium"
 
   boot_disk {
