@@ -1,6 +1,7 @@
 ---
 - name: Install Jenkins on Ubuntu
-  hosts: JENKINS
-  become: yes
+  hosts: localhost
+  connection: local
+  # become: yes
   roles:
     - jenkins
