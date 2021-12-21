@@ -1,0 +1,5 @@
+[JENKINS]
+35.228.75.94
+
+[LOCALHOST]
+localhost
