@@ -11,7 +11,7 @@ pipeline {
     }
     stage('Run playbook') {
       steps {
-        sh 'mv ../"Create instances"/inventory.txt .'
+        sh 'cp ../"Create instances"/inventory.txt .'
         sh 'ansible-playbook --private-key=$ANSIBLE_PRIVATE_KEY -i inventory.txt main.yml'
       }
     }
