@@ -9,11 +9,11 @@ pipeline {
               git branch: 'SS-3-Samir-Terraform', credentialsId: 'github', url: 'https://github.com/SS-Onboarding-21/SS-Onboarding-21'
           }
       }
-//      stage('Delete old instance'){
-//          steps {
-//              sh 'gcloud compute instances delete $(gcloud compute instances list --format="table(name)" | head -n 2| tail -1) --quiet'
-//          }
-//      }
+      stage('Delete old instance'){
+          steps {
+                sh 'gcloud compute instances delete -q $(gcloud compute instances list --format="value(name)" --filter="zone~us-west1-a" --sort-by=creationTimestamp --limit 1)'
+          }
+      }
       stage('Create new instance'){
         steps {
             sh 'terraform init -no-color'
