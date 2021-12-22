@@ -26,11 +26,11 @@ resource "google_compute_instance" "nodes" {
     access_config {
     }
   }
-
+/*
   metadata = {
     //ssh-keys = "${var.ssh_user}:${file("${var.public_key_path}")}"
   }
-
+*/
   lifecycle {
     create_before_destroy = true
   }
