@@ -28,7 +28,7 @@ resource "google_compute_instance" "nodes" {
   }
 
   metadata = {
-    ssh-keys = "${var.ssh_user}:${file("${var.public_key_path}")}"
+    //ssh-keys = "${var.ssh_user}:${file("${var.public_key_path}")}"
   }
 
   lifecycle {
