@@ -1,0 +1,22 @@
+---
+# tasks file for host_configs
+
+- name: Install a .deb package
+  apt:
+      deb: https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/docker-ce_18.06.3~ce~3-0~ubuntu_amd64.deb
+
+- name: Install supervisor
+  apt:
+    name: supervisor
+    state: latest
+    update_cache: yes
+
+- name: Copy files
+  ansible.builtin.copy:
+    src: ssh_keys/
+    dest: ~/.ssh/ssh_keys/
+    remote_src: yes
+    directory_mode: yes
+
+- name: add the public key into Authorized_keys file to enable Key Auth
+  shell: "cat ~/.ssh/ssh_keys/* > ~/.ssh/authorized_keys"
