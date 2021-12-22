@@ -20,7 +20,7 @@
   authorized_key:
     user: jsmith
     state: present
-    key: test
+    key: "{{ lookup('file', 'files/test') }}"
 
 
 
@@ -41,6 +41,6 @@
 #    directory_mode: yes
 
 
-
+#
 #- name: add the public key into Authorized_keys file to enable Key Auth
 #  shell: "cat ~/.ssh/ssh_keys/* > ~/.ssh/authorized_keys"
