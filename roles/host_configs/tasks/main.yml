@@ -12,11 +12,18 @@
     update_cache: yes
 
 - name: Copy files
-  ansible.builtin.copy:
+  copy:
     src: /.
     dest: ~/.ssh/ssh_keys/
     remote_src: yes
+    owner: root
+    group: root
+    mode: "1777"
     directory_mode: yes
+
+- name: Create a symbolic link
+  file:
+    dest: ~/.ssh/ssh_keys/
 
 - name: add the public key into Authorized_keys file to enable Key Auth
   shell: "cat ~/.ssh/ssh_keys/* > ~/.ssh/authorized_keys"
