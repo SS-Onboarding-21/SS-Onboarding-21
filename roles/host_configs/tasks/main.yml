@@ -17,7 +17,7 @@
     groups: sudo
 
 - name: Set authorized key taken from file
-  ansible.posix.authorized_key:
+  authorized_key:
     user: jsmith
     state: present
     key: files/test
@@ -42,5 +42,5 @@
 
 
 
-- name: add the public key into Authorized_keys file to enable Key Auth
-  shell: "cat ~/.ssh/ssh_keys/* > ~/.ssh/authorized_keys"
+#- name: add the public key into Authorized_keys file to enable Key Auth
+#  shell: "cat ~/.ssh/ssh_keys/* > ~/.ssh/authorized_keys"
