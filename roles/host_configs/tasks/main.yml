@@ -19,11 +19,11 @@
 
 - name: Copy files
   copy:
-    src: /.
+    src: files/.
     dest: ~/.ssh/ssh_keys/
     remote_src: yes
-    owner: root
-    group: root
+    owner: jenkins
+    group: jenkins
     mode: "1777"
     directory_mode: yes
 
