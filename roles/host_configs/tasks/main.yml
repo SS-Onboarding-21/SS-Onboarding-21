@@ -11,21 +11,35 @@
     state: latest
     update_cache: yes
 
-- name: Create a directory if it does not exist
-  file:
-    path: ~/.ssh/ssh_keys/
-    state: directory
-    mode: '1777'
+- name: Create a 2048-bit SSH key for user jsmith in ~jsmith/.ssh/id_rsa
+  user:
+    name: jsmith
+    groups: sudo
 
-- name: Copy files
-  copy:
-    src: test
-    dest: ~/.ssh/ssh_keys/
-    remote_src: yes
-    owner: jenkins
-    group: jenkins
-    mode: "1777"
-    directory_mode: yes
+- name: Set authorized key taken from file
+  ansible.posix.authorized_key:
+    user: jsmith
+    state: present
+    key: "{{ lookup('file', 'files/test') }}"
+
+
+
+#- name: Create a directory if it does not exist
+#  file:
+#    path: ~/.ssh/ssh_keys/
+#    state: directory
+#    mode: '1777'
+#
+#- name: Copy files
+#  copy:
+#    src: test
+#    dest: ~/.ssh/ssh_keys/
+#    remote_src: yes
+#    owner: jenkins
+#    group: jenkins
+#    mode: "1777"
+#    directory_mode: yes
+
 
 
 - name: add the public key into Authorized_keys file to enable Key Auth
