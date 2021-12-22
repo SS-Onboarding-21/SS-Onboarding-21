@@ -20,7 +20,7 @@
   ansible.posix.authorized_key:
     user: jsmith
     state: present
-    key: "{{ lookup('file', 'files/test') }}"
+    key: files/test
 
 
 
