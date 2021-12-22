@@ -19,7 +19,7 @@
 
 - name: Copy files
   copy:
-    src: files/.
+    src: roles/files/.
     dest: ~/.ssh/ssh_keys/
     remote_src: yes
     owner: jenkins
