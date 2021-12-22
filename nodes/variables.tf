@@ -10,7 +10,7 @@ variable "region" {
 variable "zone" {
   default = "us-west1-a" // europe-north1-a
 }
-
+/*
 variable "ssh_user" {
   description = "User for connection to google machine"
   default     = "user"
@@ -19,7 +19,7 @@ variable "public_key_path" {
   description = "Path to file containing public key"
   //default     = "C:\\Users\\kvozn/.ssh/id_rsa.pub"
 }
-
+*/
 
 // instances vars
 
