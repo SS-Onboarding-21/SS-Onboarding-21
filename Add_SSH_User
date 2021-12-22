@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+  environment {
+   ANSIBLE_PRIVATE_KEY=credentials('instances_private_key')
+  }
+  stages {
+    stage('Git Checkout'){
+        steps {
+            git branch: 'SS-4-Samir-Ansible-for-Jenkins', credentialsId: 'github2', url: 'https://github.com/SS-Onboarding-21/SS-Onboarding-21'
+        }
+    }
+    stage('Copy SSH Key') {
+      steps {
+        sh 'cp ../"Create instances"/inventory.txt .'
+        sh 'ansible-playbook --private-key=$ANSIBLE_PRIVATE_KEY -i inventory.txt copy_ssh_key.yml'
+      }
+    }
+  }
+}
