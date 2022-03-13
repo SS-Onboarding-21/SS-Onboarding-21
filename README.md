@@ -90,7 +90,7 @@ terraform apply --auto-approve -no-color
 ```
 3. To destroy with Terraform, run:
 ```
-terraform destroy " --auto-approve -no-color
+terraform destroy --auto-approve -no-color
 ```
 or
 ```
